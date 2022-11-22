@@ -16,4 +16,8 @@ class StudentRepository
     end
   return students
   end
+
+  def create(student)
+    insert = DatabaseConnection.exec_params('INSERT INTO students(name, cohort_name) VALUES(#{student.name}, #{student.cohort_name});', [])
+  end
 end

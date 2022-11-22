@@ -22,7 +22,9 @@ describe StudentRepository do
     
   end
 
-  xit "creates a new student record" do
+  it "creates a new student record" do
+    repo = StudentRepository.new
+
     student_1 = Student.new
     student_1.name = "Erika"
     student_1.cohort_name = "tigers"
@@ -31,8 +33,8 @@ describe StudentRepository do
     student_2.name = "Sarah"
     student_2.cohort_name = 'lions'
 
-    repository.create(student_1)
-    repository.create(student_2)
+    repo.create(student_1)
+    repo.create(student_2)
 
     expect(all_students).to eq [student_1, student_2]
   end
