@@ -25,17 +25,14 @@ describe StudentRepository do
   it "creates a new student record" do
     repo = StudentRepository.new
 
-    student_1 = Student.new
-    student_1.name = "Erika"
-    student_1.cohort_name = "tigers"
+    students = repo.all
 
-    student_2 = Student.new
-    student_2.name = "Sarah"
-    student_2.cohort_name = 'lions'
-
-    repo.create(student_1)
-    repo.create(student_2)
-
-    expect(all_students).to eq [student_1, student_2]
+    expect(students.length).to eq 2
+    expect(students[0].id).to eq '1'
+    expect(students[0].name).to eq 'Stephanie Morgan'
+    expect(students[0].cohort_name).to eq 'tigers'
+    expect(students[1].id).to eq '2'
+    expect(students[1].name).to eq 'Mary-Jane Smith'
+    expect(students[1].cohort_name).to eq 'cuckoos'
   end
 end
