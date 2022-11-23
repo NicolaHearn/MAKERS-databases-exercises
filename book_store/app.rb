@@ -11,5 +11,5 @@ results = BookRepository.new
 
 # Print out each record from the result set .
 results.all.each do |record|
-  puts "#{record["id"]} - #{record["title"]} - #{record["author_name"]}"
+  puts "#{record.id} - #{record.title} - #{record.author_name}"
 end
