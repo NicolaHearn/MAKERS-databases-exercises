@@ -71,7 +71,7 @@ class User
 end
 
 class Post
-  attr_accessor :id, :title, :content, 
+  attr_accessor :id, :title, :content, :views, :user_id
 end
 
 5. Define the Repository Class interface

@@ -23,13 +23,23 @@ describe PostRepository do
       expect(posts[0].title).to eq 'spells for wicked kids'
       expect(posts[0].content).to eq 'spell 1'
       expect(posts[0].views).to eq '24'
-      expect(posts[0].user_id).to eq '1'
-  
+    
       expect(posts[2].id).to eq '3'
       expect(posts[2].title).to eq 'How to be human'
       expect(posts[2].content).to eq 'using a fork'
       expect(posts[2].views).to eq '345'
-      expect(posts[2].user_id).to eq '2'
+    end
+  end
+  describe "#find" do
+    it "returns a single entry by searching for the id" do
+      repo = PostRepository.new
+
+      post = repo.find(2)
+    
+      expect(post.id).to eq '2'
+      expect(post.title).to eq 'spells for funny kids'
+      expect(post.content).to eq 'spell 2, spell 3'
+      expect(post.views).to eq '39'
     end
   end
 end
