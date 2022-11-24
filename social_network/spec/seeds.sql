@@ -16,8 +16,9 @@
 --     on delete cascade
 -- );
 
-TRUNCATE TABLE posts RESTART IDENTITY;
+
 TRUNCATE TABLE users RESTART IDENTITY cascade; 
+TRUNCATE TABLE posts RESTART IDENTITY;
 
 INSERT INTO users (username, email) VALUES ('Harry Potter', 'harry94@gmail.com');
 INSERT INTO users (username, email) VALUES ('Ariel', 'theMermaid@seamail.com');

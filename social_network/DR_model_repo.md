@@ -129,7 +129,7 @@ class UserRepository
   end
 
   def delete(user)
-    sql 'DELETE FROM users WHERE id = $1;'
+    sql = 'DELETE FROM users WHERE id = $1;'
     params = [id]
 
     result_set = DatabaseConnection.exec_params(sql, params)
@@ -232,7 +232,7 @@ users[0].email # =>  'theMermaid@seamail.com'
 
 # 3 create a new user
 
-repo UserRepository.new
+repo = UserRepository.new
 
 new_user = User.new
 new_user.username = 'Postman Pat'

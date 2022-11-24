@@ -30,4 +30,19 @@ class UserRepository
 
     return user
   end
+
+  def create(user)
+    sql = 'INSERT INTO users (username, email) VALUES ($1, $2);'
+    params = [user.username, user.email]
+
+    result_set = DatabaseConnection.exec_params(sql, params)
+  end
+
+  def delete(id)
+    sql = 'DELETE FROM users WHERE id = $1;'
+    params = [id]
+
+    result_set = DatabaseConnection.exec_params(sql, params)
+  end
+
 end

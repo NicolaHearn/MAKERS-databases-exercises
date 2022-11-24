@@ -39,4 +39,34 @@ describe UserRepository do
       expect(user.email).to eq 'theMermaid@seamail.com'
     end
   end
+
+  describe "#create" do
+    it "creates a new entry in the database" do
+      repo = UserRepository.new
+
+      new_user = User.new
+      new_user.username = 'Postman Pat'
+      new_user.email = 'patandcat@hillsmail.com'
+        
+      query = repo.create(new_user)
+        
+      users = repo.all
+      user = repo.find(3)  
+      expect(users.length).to eq 3
+      expect(user.username).to eq 'Postman Pat'
+    end
+  end
+
+  describe "#delete" do
+    it "deletes an entry from the database based on the id" do
+      repo = UserRepository.new
+
+      repo.delete(1)
+    
+      users = repo.all
+    
+      expect(users.length).to eq 1
+    end
+  end
 end
+
