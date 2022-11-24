@@ -97,9 +97,9 @@ class UserRepository
     result_set.each do |person|
       user = User.new
       user.id = person['id']
-      user.name = person['username']
-      user.author_name = person['email']
-
+      user.username = person['username']
+      user.email = person['email']
+      
       users << user
     end
 
