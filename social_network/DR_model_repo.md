@@ -181,14 +181,14 @@ class PostRepository
   end
 
   def create(post)
-    sql = 'INSERT INTO user (title, content, views, user_id) VALUES ($1, $2, $3, $4);'
-    params = [post.title, post.content, post.views, post.user_id]
+    sql = 'INSERT INTO user (title, content, views) VALUES ($1, $2, $3, $4);'
+    params = [post.title, post.content, post.views]
 
     result_set = DatabaseConnection.exec_params(sql, params)
   end
 
-  def delete(user)
-    sql 'DELETE FROM posts WHERE id = $1;'
+  def delete(id)
+    sql = 'DELETE FROM posts WHERE id = $1;'
     params = [id]
 
     result_set = DatabaseConnection.exec_params(sql, params)

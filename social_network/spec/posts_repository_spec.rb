@@ -42,4 +42,33 @@ describe PostRepository do
       expect(post.views).to eq '39'
     end
   end
+  describe "#create" do
+    it "creates a new record in the database" do
+      repo = PostRepository.new
+
+      new_post = Post.new
+      new_post.title = 'Turn a frog into a princess'
+      new_post.content = 'Part 1, prepare your ingredients....'
+      new_post.views = 45
+        
+      query = repo.create(new_post)
+        
+      posts = repo.all
+      post = repo.find(5)  
+      
+      expect(posts.length).to eq 5
+      expect(post.title).to eq 'Turn a frog into a princess'
+    end
+  end
+  describe "#delete" do
+    it "deletes a record from the database" do
+      repo = PostRepository.new
+
+      repo.delete(1)
+    
+      posts = repo.all
+    
+      expect(posts.length).to eq 3
+    end
+  end
 end

@@ -32,4 +32,18 @@ class PostRepository
 
       return post
     end
+
+    def create(post)
+      sql = 'INSERT INTO posts (title, content, views) VALUES ($1, $2, $3);'
+      params = [post.title, post.content, post.views]
+
+      result_set = DatabaseConnection.exec_params(sql, params)
+    end
+
+    def delete(id)
+      sql = 'DELETE FROM posts WHERE id = $1;'
+      params = [id]
+
+      result_set = DatabaseConnection.exec_params(sql, params)
+    end
 end
