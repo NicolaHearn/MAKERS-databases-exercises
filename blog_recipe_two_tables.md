@@ -98,7 +98,7 @@ CREATE TABLE posts (
   post_content text
 );
 
--- Then the table with the foreign key first.
+-- Then the table with the foreign key.
 CREATE TABLE comments (
   id SERIAL PRIMARY KEY,
   comment_content text,
