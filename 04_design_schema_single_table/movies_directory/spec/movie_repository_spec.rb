@@ -30,4 +30,23 @@ describe MovieRepository do
         
         expect(movie.title).to eq('Lord of the Rings')
     end
+
+    it "inserts a new entry into the database" do 
+        my_movie = Movie.new
+        my_movie.title = "Back to the Future"
+        my_movie.genre = "Sci-fi"
+        my_movie.release_year = "1989"
+
+        repo = MovieRepository.new
+        repo.create(my_movie)
+        all_movies = repo.all
+        expect(all_movies.length).to eq 3 
+    end
+
+    it "deletes a record from the database by id" do
+        repo = MovieRepository.new
+        repo.delete(1)
+        all_movies = repo.all
+        expect(all_movies.length).to eq 1
+    end
 end

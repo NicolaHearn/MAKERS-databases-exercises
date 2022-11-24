@@ -34,4 +34,19 @@ class MovieRepository
         
         return movie
     end
+
+    def create(movie)
+        sql = 'INSERT INTO movies (title, genre, release_year) VALUES ($1, $2, $3);'
+        params = [movie.title, movie.genre, movie.release_year]
+
+        query = DatabaseConnection.exec_params(sql, params)
+    end
+
+    def delete(id)
+        sql = 'DELETE FROM movies WHERE id = $1;'
+        params = [id]
+
+        query = DatabaseConnection.exec_params(sql, params)
+    end
+
 end
