@@ -11,17 +11,9 @@ class Menu
     menu_choice = @io.gets.chomp
   
     if menu_choice == "1"
-      # results = AlbumRepository.new
-      # results.all.each do |record|
-        # @io.puts "#{record.id} - #{record.title} - #{record.release_year}"
         @io.puts "This prints a list of users"
-    #  end
     elsif menu_choice == "2"
-      # results = ArtistRepository.new
-      # results.all.each do |record|
-        # @io.puts "#{record.id} - #{record.name} - #{record.genre}"
         @io.puts "This prints a list of posts"
-     # end
    end
   end
 end
